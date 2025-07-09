@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { createUser, doLoginBack } from '../../core/services/userFetch'
 import { doLoginActions } from "./LoginPageAction";
-import HomePage from "../../../../../REACT/2.React-Avanzado/7.septima-clase/proyectoFinal/mystore/src/pages/HomePage/HomePage";
+import HomePage from "../HomePage/HomePage";
 
 const LoginPage = () => {
 

@@ -1,14 +1,13 @@
 import './App.css'
 import store from './core/redux/store/store'
-import HomePage from './pages/HomePage/HomePage'
 import { Provider } from 'react-redux'
+import LoginPage from './pages/LoginPage/LoginPage'
 
 function App() {
  
-
   return (
     <Provider store={store}>
-     <HomePage/>
+     <LoginPage/>
     </Provider>
   )
 }
