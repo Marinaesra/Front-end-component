@@ -7,6 +7,7 @@ const Menucomponent = () => {
     const user = useSelector((state) => state.loginPageReducer.user)
 
     const dispatch = useDispatch()
+    /*const navigate = useNavigate()*/
 
     const handlerMenuOption = (option) => {
         dispatch(
@@ -24,11 +25,9 @@ const Menucomponent = () => {
             <button onClick={() => handlerMenuOption(0)}>Listar productos</button>
         </div>
         <div>
-            <button onClick={() => handlerMenuOption(1)}>Ver Carrito [{user.cart?.length}]</button>
+            <button>Ver Carrito</button>
         </div>
-        <div style={{display:'flex', alignItems: 'center'}}>
-            <span style={{fontSize: 18, fontWeight: 'bold'}}>{user.username}</span>
-        </div>
+
     </div>
   )
 }
