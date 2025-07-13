@@ -6,9 +6,11 @@ import ListaProductosComponent from '../../components/ListaProductosComponent/Li
 const HomePage = () => {
   return (
     <div>
-        <LoginPage/>
-        <hr />
+       <h1>Be Live</h1>
+       <hr />
         <Menucomponent/>
+        <hr />
+        <LoginPage/>
      
     </div>
   )

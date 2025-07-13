@@ -58,8 +58,7 @@ const doRegister = async () => {
             !user 
                 ? isLogin ?(
                     <div>
-                        <h1>Be Live</h1>
-                        <h2>Login</h2>
+                      <h2>Login</h2>
                         <div>
                             <div>
                                 <span>Username</span>

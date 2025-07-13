@@ -1,4 +1,4 @@
-import { CHANGE_MENU_OPTION } from "./MenuComponentAction"
+/*import { CHANGE_MENU_OPTION } from "./MenuComponentAction"
 
 const initialState = {
     menuOption: 0
@@ -22,4 +22,4 @@ const menuReducer =(state = initialState, action) => {
 }
 
 
-export default menuReducer
+export default menuReducer*/
