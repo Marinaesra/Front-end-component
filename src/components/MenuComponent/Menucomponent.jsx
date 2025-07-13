@@ -14,29 +14,3 @@ const Menucomponent = () => {
 
 export default Menucomponent;
 
-/* const user = useSelector((state) => state.loginPageReducer.user)
-
- const dispatch = useDispatch()
- const navigate = useNavigate()
-
- const handlerMenuOption = (option) => {
-     dispatch(
-         changeMenuOptionActions (
-             {
-                 menuOption: option
-             }
-         )
-     )
- }
-
-return (
-<div style={{display: 'flex', gap: 50}}>
-     <div>
-         <button onClick={() => handlerMenuOption(0)}>Listar productos</button>
-     </div>
-     <div>
-         <button>Ver Carrito</button>
-     </div>
-
- </div>
-)*/
