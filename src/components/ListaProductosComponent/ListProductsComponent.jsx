@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadProductsActions } from './ListaProductosAction'
+import { loadProductsActions } from './ListProductsAction'
 import { getProducts } from '../../core/services/productsFetch'
 
 const ListaProductosComponent = () => {

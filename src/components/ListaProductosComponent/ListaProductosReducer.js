@@ -1,4 +1,4 @@
-import { LOAD_PRODUCTS } from "./ListaProductosAction"
+import { LOAD_PRODUCTS } from "./ListProductsAction"
 
 
 const initialState = {
