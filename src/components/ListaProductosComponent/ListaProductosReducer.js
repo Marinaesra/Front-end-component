@@ -1,25 +1,21 @@
-import { LOAD_PRODUCTS } from "./ListProductsAction"
-
+import { LOAD_PRODUCTS } from "./ListProductsAction";
 
 const initialState = {
-    products: []
-}
+  products: []
+};
 
 const listaProductosReducer = (state = initialState, action) => {
-    const{
-        type,
-        payload
-    } = action
+  const { type, payload } = action;
 
-    switch (type) {
-        case LOAD_PRODUCTS:
-            return {
-                ...state,
-                products: payload.products
-            }
-        default:
-            return state
-    }
-}
+  switch (type) {
+    case LOAD_PRODUCTS:
+      return {
+        ...state,
+        products: payload.products,
+      };
+    default:
+      return state;
+  }
+};
 
-export default listaProductosReducer
+export default listaProductosReducer;
