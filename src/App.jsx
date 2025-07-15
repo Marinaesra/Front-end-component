@@ -4,8 +4,10 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Routes, Route } from "react-router";
 import LoginPage from './pages/LoginPage/LoginPage'
 import HomePage from './pages/HomePage/HomePage'
-import ContactPage from './pages/HomePage/ContactPage';
-import ListPage from './pages/ListPage/ListPage';
+import ListPageProducts from './pages/ListPage/ListPageProducts';
+import DetailsProductsPage from './pages/DetailsPage/DetailsProductsPage';
+import ContactPage from './pages/ContactPage/ContactPage';
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 
 function App() {
  
@@ -15,8 +17,10 @@ function App() {
          <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/list" element={<ListPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/list" element={<ListPageProducts />} />
+          <Route path="/details" element={<DetailsProductsPage />} />
+           <Route path="/contact" element={<ContactPage />} />
+           <Route path="/profile" element={<UserProfilePage />} />
          </Routes>
        </BrowserRouter>
     </Provider>
