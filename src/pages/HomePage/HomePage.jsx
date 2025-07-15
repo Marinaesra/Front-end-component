@@ -1,7 +1,6 @@
 import React from "react";
-import LoginPage from "../LoginPage/LoginPage";
 import Menucomponent from "../../components/MenuComponent/Menucomponent";
-import ListaProductosComponent from "../../components/ListaProductosComponent/ListProductsComponent";
+import { Link } from "react-router";
 
 const HomePage = () => {
   return (
@@ -10,8 +9,10 @@ const HomePage = () => {
       <hr />
       <Menucomponent />
       <hr />
-      <LoginPage />
+            <button><Link to={"/login"}> Acceso </Link>
+      </button>
     </div>
+
   );
 };
 

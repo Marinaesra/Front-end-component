@@ -4,8 +4,8 @@ import { Link } from "react-router";
 const Menucomponent = () => {
   return (
     <div>
+
       <button>
-        {" "}
         <Link to={"/list"}> Listado de Productos </Link>
       </button>
       <button>

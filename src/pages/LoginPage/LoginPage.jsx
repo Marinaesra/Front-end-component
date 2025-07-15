@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createUser, doLoginBack } from "../../core/services/userFetch";
 import { doLoginActions } from "./LoginPageAction";
 import HomePage from "../HomePage/HomePage";
+import { useNavigate } from "react-router";
 
 const LoginPage = () => {
   const [loginInfo, setLoginInfo] = useState({});
@@ -12,6 +13,7 @@ const LoginPage = () => {
   const user = useSelector((state) => state.loginPageReducer.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handlerLoginInfo = (propName, propValue) => {
     setLoginInfo({
@@ -34,6 +36,7 @@ const LoginPage = () => {
         user: res.user,
       })
     );
+      navigate('/list')
   };
 
   const doRegister = async () => {
@@ -43,7 +46,12 @@ const LoginPage = () => {
         user: res,
       })
     );
+    navigate('/list')
   };
+
+  const goToHome = async () => {
+     navigate('/')
+  }
 
   return (
     <>
@@ -68,6 +76,9 @@ const LoginPage = () => {
               </div>
               <div>
                 <button onClick={doLogin}>Iniciar Sesión</button>
+              </div>
+               <div>
+                <button onClick={goToHome}>Volver</button>
               </div>
               <hr />
               <div>
@@ -111,6 +122,9 @@ const LoginPage = () => {
               </div>
               <div>
                 <button onClick={doRegister}>Registrarme</button>
+              </div>
+              <div>
+                <button onClick={goToHome}>Volver</button>
               </div>
             </div>
           </div>
