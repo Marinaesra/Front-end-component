@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage/HomePage'
 import ListPageProducts from './pages/ListPage/ListPageProducts';
 import DetailsProductsPage from './pages/DetailsPage/DetailsProductsPage';
 import ContactPage from './pages/ContactPage/ContactPage';
-import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
 
 function App() {
  
