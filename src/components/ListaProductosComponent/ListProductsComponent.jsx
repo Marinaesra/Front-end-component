@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { loadProductsActions } from './ListProductsAction'
 import { getProducts } from '../../core/services/productsFetch'
 import { useNavigate } from 'react-router'
+import { detailsProductAction } from '../DetailsProductComponent/DetailsProductComponentActions'
 
 const ListaProductosComponent = () => {
 
@@ -10,6 +11,7 @@ const ListaProductosComponent = () => {
     const navigate = useNavigate()
 
     const productList = useSelector ((state) => state.listaProductosReducer.products)
+    const user = useSelector((state) => state.loginPageReducer.user)
     
 
     const loadProducts = async () => {
@@ -28,7 +30,12 @@ useEffect(() => {
   },[])
 
 
-const gotoDetail = async () =>{
+const gotoDetail = async (productId) =>{
+  dispatch(
+    detailsProductAction({
+      productId: productId
+    })
+  )
   navigate ('/details')
 }
 
@@ -61,7 +68,7 @@ const gotoProfile = async () =>{
                   <button>Añadir al carrito</button>
                 </div>
                 <div>
-                  <button onClick={gotoDetail}>Detalles</button>
+                  <button onClick={() => {gotoDetail(p.id)}}>Detalles</button>
                 </div>
               </div>
             ))

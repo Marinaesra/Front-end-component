@@ -6,9 +6,10 @@ export const getProducts = async () => {
 }
 
 export const getDetailsProduct = async (productId) => {
-    const response = await fetch(`http://localhost:3000/details${productId}`)
+
+    const response = await fetch(`http://localhost:3000/products/details/${productId}`)
     const res = await response.json()
 
-    return res
+   return res
 }
 
