@@ -4,13 +4,14 @@ import { loadProductsActions } from './ListProductsAction'
 import { getProducts } from '../../core/services/productsFetch'
 import { useNavigate } from 'react-router'
 import { detailsProductAction } from '../DetailsProductComponent/DetailsProductComponentActions'
+import { addProductToCart } from '../../core/services/userFetch'
 
-const ListaProductosComponent = () => {
+const ListProductsComponent = () => {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const productList = useSelector ((state) => state.listaProductosReducer.products)
+    const productList = useSelector ((state) => state.listProductsReducer.products)
     const user = useSelector((state) => state.loginPageReducer.user)
     
 
@@ -47,6 +48,19 @@ const gotoProfile = async () =>{
   navigate ('/profile')
 }
 
+
+ const addToCart = async (productId) => {
+    const res = await addProductToCart(user.id, productId)
+
+    dispatch(
+      loadInfoActions(
+        {
+          user: res.user
+        }
+      )
+    )
+  }
+
   return (
     <div>
         <h2>Lista de productos</h2>
@@ -65,7 +79,7 @@ const gotoProfile = async () =>{
                 <span> {p.name}</span>
                 <span> {p.price}</span>
                 <div>
-                  <button>Añadir al carrito</button>
+                  <button onClick={addToCart}>Añadir al carrito</button>
                 </div>
                 <div>
                   <button onClick={() => {gotoDetail(p.id)}}>Detalles</button>
@@ -81,4 +95,4 @@ const gotoProfile = async () =>{
   )
 }
 
-export default ListaProductosComponent
+export default ListProductsComponent

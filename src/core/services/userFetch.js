@@ -27,3 +27,20 @@ export const createUser = async (newUser) => {
   const result = await res.json();
   return result.user;
 };
+
+export const addProductToCart = async (userId, productId) => {
+    const res = await fetch('http://localhost:3000/user/addProduct', {
+        method: 'PUT',
+        headers: {
+            'content-type': 'Application/json'
+        },
+        body: JSON.stringify(
+            {
+                userId,
+                productId
+            }
+        )
+    })
+    const result = await res.json()
+    return result
+}

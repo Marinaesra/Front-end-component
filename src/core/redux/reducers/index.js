@@ -1,13 +1,15 @@
 import { combineReducers } from "redux";
 import loginPageReducer from "../../../pages/LoginPage/LoginPageReducer";
-import listaProductosReducer from "../../../components/ListaProductosComponent/ListaProductosReducer";
 import detailsProductReducer from "../../../components/DetailsProductComponent/DetailsProductComponentReducer";
+import listProductsReducer from "../../../components/ListProductsComponent/ListProductsReducer";
+import userProfileComponentReducer from "../../../components/UserProfileComponent/UserProfileComponentReducer";
 
 
 const reducer = combineReducers({
     loginPageReducer,
-    listaProductosReducer,
-    detailsProductReducer
+    listProductsReducer,
+    detailsProductReducer,
+    userProfileComponentReducer
 })
 
 export default reducer

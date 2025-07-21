@@ -1,5 +1,5 @@
 import React from 'react'
-import ListaProductosComponent from '../../components/ListaProductosComponent/ListProductsComponent'
+import ListProductsComponent from '../../components/ListProductsComponent/ListProductsComponent'
 import Menucomponent from '../../components/MenuComponent/Menucomponent'
 
 const ListPageProducts = () => {
@@ -7,7 +7,7 @@ const ListPageProducts = () => {
     <div>
       <Menucomponent/>
       <hr />
-        <ListaProductosComponent/>
+        <ListProductsComponent/>
     </div>
   )
 }

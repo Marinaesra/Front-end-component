@@ -4,7 +4,7 @@ const initialState = {
   products: []
 };
 
-const listaProductosReducer = (state = initialState, action) => {
+const listProductsReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -18,4 +18,4 @@ const listaProductosReducer = (state = initialState, action) => {
   }
 };
 
-export default listaProductosReducer;
+export default listProductsReducer;

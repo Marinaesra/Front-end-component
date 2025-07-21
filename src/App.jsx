@@ -8,6 +8,8 @@ import ListPageProducts from './pages/ListPage/ListPageProducts';
 import DetailsProductsPage from './pages/DetailsPage/DetailsProductsPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
+import CartPage from './pages/CartPage/CartPage';
+import MainLayaut from './layouts/MainLayaut';
 
 function App() {
  
@@ -15,12 +17,16 @@ function App() {
     <Provider store={store}>
        <BrowserRouter>
          <Routes>
+          <Route path="/" element={<MainLayaut />} >
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/list" element={<ListPageProducts />} />
           <Route path="/details" element={<DetailsProductsPage />} />
            <Route path="/contact" element={<ContactPage />} />
            <Route path="/profile" element={<UserProfilePage />} />
+           <Route path="/cart" element={<CartPage/>} />
+
+          </Route>
          </Routes>
        </BrowserRouter>
     </Provider>
