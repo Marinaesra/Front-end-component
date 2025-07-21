@@ -11,11 +11,11 @@ const ContactPage = () => {
   return (
     <div>
       <div>
-        <h1> *Contacto*</h1>
+        <h1> Donde Encontrarnos </h1>
         <hr />
         <div style={{ display: "flex", flexDirection: "column", gap: 25 }}>
           <span>Avenida Mediterráneo, Edificio Aranzur nº8</span>
-          <span>Be Live</span>
+          <span>Esencia Activa</span>
           <span>Málaga</span>
         </div>
         <hr />
@@ -26,7 +26,19 @@ const ContactPage = () => {
           <span>Málaga</span>
         </div>
         <div>
-          <button onClick={goToReturn}>Incio</button>
+          <button
+            style={{
+              background: "#7abfe2ff",
+              borderradius: 150,
+              gap: 50,
+            }}
+            onClick={goToReturn}
+          >
+            <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+              {" "}
+              Incio
+            </span>
+          </button>
         </div>
       </div>
     </div>

@@ -102,22 +102,6 @@ const ListProductsComponent = () => {
                   borderradius: 150,
                   gap: 50,
                 }}
-                onClick={addToCart}
-              >
-                <span
-                  style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
-                >
-                  Añadir al carrito
-                </span>
-              </button>
-            </div>
-            <div>
-              <button
-                style={{
-                  background: "#7abfe2ff",
-                  borderradius: 150,
-                  gap: 50,
-                }}
                 onClick={() => {
                   gotoDetail(p.id);
                 }}
@@ -129,6 +113,22 @@ const ListProductsComponent = () => {
                 </span>
               </button>
             </div>
+                <div>
+                  <button
+                    style={{
+                      background: "#7abfe2ff",
+                      borderradius: 150,
+                      gap: 50,
+                    }}
+                    onClick={addToCart}
+                  >
+                    <span
+                      style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                    >
+                      Añadir al carrito
+                    </span>
+                  </button>
+                </div>
           </div>
         ))
       )}
