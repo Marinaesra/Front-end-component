@@ -36,7 +36,7 @@ const LoginPage = () => {
         user: res.user,
       })
     );
-      navigate('/list')
+    navigate("/list");
   };
 
   const doRegister = async () => {
@@ -46,19 +46,19 @@ const LoginPage = () => {
         user: res,
       })
     );
-    navigate('/list')
+    navigate("/list");
   };
 
   const goToHome = async () => {
-     navigate('/')
-  }
+    navigate("/");
+  };
 
   return (
     <>
       {!user ? (
         isLogin ? (
           <div>
-            <h2>Login</h2>
+            <h2>Bienvenido</h2>
             <div>
               <div>
                 <span>Username</span>
@@ -75,15 +75,52 @@ const LoginPage = () => {
                 />
               </div>
               <div>
-                <button onClick={doLogin}>Iniciar Sesión</button>
+                <button
+                  style={{
+                    background: "#7abfe2ff",
+                    borderradius: 150,
+                    gap: 50,
+                  }}
+                  onClick={doLogin}
+                >
+                  <span
+                    style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                  >
+                    Iniciar Sesión
+                  </span>
+                </button>
               </div>
-               <div>
-                <button onClick={goToHome}>Volver</button>
+              <div>
+                <button
+                  style={{
+                    background: "#7abfe2ff",
+                    borderradius: 150,
+                    gap: 50,
+                  }}
+                  onClick={goToHome}
+                >
+                  <span
+                    style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                  >
+                    Volver
+                  </span>
+                </button>
               </div>
               <hr />
               <div>
-                <button onClick={() => setIsLogin(false)}>
-                  Quiero registrarme
+                <button
+                  style={{
+                    background: "#7abfe2ff",
+                    borderradius: 150,
+                    gap: 50,
+                  }}
+                  onClick={() => setIsLogin(false)}
+                >
+                  <span
+                    style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                  >
+                    Quiero registrarme
+                  </span>
                 </button>
               </div>
             </div>

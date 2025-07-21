@@ -1,98 +1,153 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadProductsActions } from './ListProductsAction'
-import { getProducts } from '../../core/services/productsFetch'
-import { useNavigate } from 'react-router'
-import { detailsProductAction } from '../DetailsProductComponent/DetailsProductComponentActions'
-import { addProductToCart } from '../../core/services/userFetch'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadProductsActions } from "./ListProductsAction";
+import { getProducts } from "../../core/services/productsFetch";
+import { useNavigate } from "react-router";
+import { detailsProductAction } from "../DetailsProductComponent/DetailsProductComponentActions";
+import { addProductToCart } from "../../core/services/userFetch";
 
 const ListProductsComponent = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+  const productList = useSelector(
+    (state) => state.listProductsReducer.products
+  );
+  const user = useSelector((state) => state.loginPageReducer.user);
 
-    const productList = useSelector ((state) => state.listProductsReducer.products)
-    const user = useSelector((state) => state.loginPageReducer.user)
-    
+  const loadProducts = async () => {
+    const aux = await getProducts();
+    dispatch(
+      loadProductsActions({
+        products: aux.products,
+      })
+    );
+  };
 
-    const loadProducts = async () => {
-        const aux = await getProducts()
-        dispatch (
-            loadProductsActions(
-                {
-                    products: aux.products,
-                }
-            )
-        )
-    }
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
-useEffect(() => {
-    loadProducts()
-  },[])
+  const gotoDetail = async (productId) => {
+    dispatch(
+      detailsProductAction({
+        productId: productId,
+      })
+    );
+    navigate("/details");
+  };
 
+  const goToHome = async () => {
+    navigate("/");
+  };
 
-const gotoDetail = async (productId) =>{
-  dispatch(
-    detailsProductAction({
-      productId: productId
-    })
-  )
-  navigate ('/details')
-}
+  const gotoProfile = async () => {
+    navigate("/profile");
+  };
 
-const goToHome = async () =>{
-  navigate ('/')
-}
-
-const gotoProfile = async () =>{
-  navigate ('/profile')
-}
-
-
- const addToCart = async (productId) => {
-    const res = await addProductToCart(user.id, productId)
+  const addToCart = async (productId) => {
+    const res = await addProductToCart(user.id, productId);
 
     dispatch(
-      loadInfoActions(
-        {
-          user: res.user
-        }
-      )
-    )
-  }
+      loadInfoActions({
+        user: res.user,
+      })
+    );
+  };
 
   return (
     <div>
-        <h2>Lista de productos</h2>
-        <div>
-                  <button onClick={gotoProfile}>Mi Perfil</button>
-                </div>
-        <hr />
-      {!productList? (
+      <h2>Lista de productos</h2>
+      <div>
+        <button
+          style={{
+            background: "#7abfe2ff",
+            borderradius: 150,
+            gap: 50,
+          }}
+          onClick={gotoProfile}
+        >
+          <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+            Mi Perfil
+          </span>
+        </button>
+      </div>
+      <hr />
+      {!productList ? (
         <div>Loading...</div>
       ) : (
-            productList.map((p, idx) => (
-              <div key={idx} style={{display: 'flex', alignItems: 'center', gap: 20, justifyContent: 'space-between'}}>
-                <div>
-                  <img style={{width: 150, height: 150}} src={p.image_url} alt="" />
-                </div>
-                <span> {p.name}</span>
-                <span> {p.price}</span>
-                <div>
-                  <button onClick={addToCart}>Añadir al carrito</button>
-                </div>
-                <div>
-                  <button onClick={() => {gotoDetail(p.id)}}>Detalles</button>
-                </div>
-              </div>
-            ))
-          )
-      }
+        productList.map((p, idx) => (
+          <div
+            key={idx}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 20,
+              justifyContent: "space-between",
+            }}
+          >
+            <div>
+              <img
+                style={{ width: 150, height: 150 }}
+                src={p.image_url}
+                alt=""
+              />
+            </div>
+            <span> {p.name}</span>
+            <span> {p.price}</span>
+            <div>
+              <button
+                style={{
+                  background: "#7abfe2ff",
+                  borderradius: 150,
+                  gap: 50,
+                }}
+                onClick={addToCart}
+              >
+                <span
+                  style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                >
+                  Añadir al carrito
+                </span>
+              </button>
+            </div>
+            <div>
+              <button
+                style={{
+                  background: "#7abfe2ff",
+                  borderradius: 150,
+                  gap: 50,
+                }}
+                onClick={() => {
+                  gotoDetail(p.id);
+                }}
+              >
+                <span
+                  style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                >
+                  Detalles
+                </span>
+              </button>
+            </div>
+          </div>
+        ))
+      )}
       <div>
-                  <button onClick={goToHome}>Volver</button>
-                </div>
+        <button
+          style={{
+            background: "#7abfe2ff",
+            borderradius: 150,
+            gap: 50,
+          }}
+          onClick={goToHome}
+        >
+          <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+            Volver
+          </span>
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ListProductsComponent
+export default ListProductsComponent;

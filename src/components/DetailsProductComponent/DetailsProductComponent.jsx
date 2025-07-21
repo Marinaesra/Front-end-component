@@ -56,7 +56,20 @@ const DetailsProductComponent = () => {
             <span> {productDetails.description}</span>
             <span> {productDetails.price}</span>
             <div>
-              <button onClick={goToList}>Volver</button>
+              <button
+                style={{
+                  background: "#7abfe2ff",
+                  borderradius: 150,
+                  gap: 50,
+                }}
+                onClick={goToList}
+              >
+                <span
+                  style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                >
+                  Volver
+                </span>
+              </button>
             </div>
           </div>
         </>
