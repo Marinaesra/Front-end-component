@@ -9,7 +9,7 @@ import DetailsProductsPage from './pages/DetailsPage/DetailsProductsPage';
 import ContactPage from './pages/ContactPage/ContactPage';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage'
 import CartPage from './pages/CartPage/CartPage';
-import MainLayaut from './layouts/MainLayaut';
+import MainLayout from './layouts/MainLayout';
 
 function App() {
  
@@ -17,7 +17,7 @@ function App() {
     <Provider store={store}>
        <BrowserRouter>
          <Routes>
-          <Route path="/" element={<MainLayaut />} >
+          <Route path="/" element={<MainLayout />} >
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/list" element={<ListPageProducts />} />
