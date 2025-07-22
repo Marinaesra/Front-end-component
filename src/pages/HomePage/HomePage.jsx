@@ -29,7 +29,7 @@ const HomePage = () => {
             <button style={{
                       
                       background: "#7abfe2ff",
-                      borderradius: 150,
+                      borderRadius: 150,
                     }}><Link to={"/login"}> <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>  Acceso </span></Link>
       </button>
     </div>

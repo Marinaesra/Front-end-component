@@ -62,7 +62,7 @@ const ListProductsComponent = () => {
         <button
           style={{
             background: "#7abfe2ff",
-            borderradius: 150,
+            borderRadius: 150,
             gap: 50,
           }}
           onClick={gotoProfile}
@@ -99,7 +99,7 @@ const ListProductsComponent = () => {
               <button
                 style={{
                   background: "#7abfe2ff",
-                  borderradius: 150,
+                  borderRadius: 150,
                   gap: 50,
                 }}
                 onClick={() => {
@@ -117,7 +117,7 @@ const ListProductsComponent = () => {
                   <button
                     style={{
                       background: "#7abfe2ff",
-                      borderradius: 150,
+                      borderRadius: 150,
                       gap: 50,
                     }}
                     onClick={addToCart}

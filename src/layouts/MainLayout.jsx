@@ -12,11 +12,19 @@ const MainLayout = () => {
         height: "100%",
         backgroundImage: "url('/fondo.jpg')",
         backgroundSize: "cover",
-        opacity: 0.5,
+        //opacity: 0.4,
         zIndex: 0,
       }}
     >
-      <Outlet />
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          padding: "2rem",
+        }}
+      >
+        <Outlet />
+      </div>
     </div>
   );
 };

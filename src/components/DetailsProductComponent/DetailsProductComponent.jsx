@@ -61,7 +61,7 @@ const DetailsProductComponent = () => {
             <button
               style={{
                 background: "#7abfe2ff",
-                borderradius: 150,
+                borderRadius: 150,
                 gap: 50,
               }}
               onClick={goToList}
