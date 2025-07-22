@@ -55,7 +55,6 @@ const DetailsProductComponent = () => {
             </div>
             <span> {productDetails.name}</span>
             <span> {productDetails.description}</span>
-            <span> {productDetails.price}</span>
           </div>
           <div>
             <button

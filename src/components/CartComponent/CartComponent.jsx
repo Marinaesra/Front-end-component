@@ -21,11 +21,11 @@ const CartComponent = () => {
             !user.cart 
                 ? (<div>No hay productos en el carrito</div>)
                 : (
-                  user.cart.map((product, idx) => {
+                  user.cart.map((product) => {
                     const p = matchProducts(product.productId)
                     if (!p) return
                     return (
-                      <div key={idx} style={{display: 'flex', alignItems: 'center', gap: 20, justifyContent: 'space-between'}}>
+                      <div key={product.id} style={{display: 'flex', alignItems: 'center', gap: 20, justifyContent: 'space-between'}}>
                         <div>
                           <img style={{width: 150, height: 150}} src={p.imagen_url} alt="" />
                         </div>

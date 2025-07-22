@@ -74,11 +74,20 @@ const LoginPage = () => {
                   onChange={(e) => handlerLoginInfo("password", e.target.value)}
                 />
               </div>
+              <hr />
+              <div style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 20,
+            
+            }}>
+
               <div>
                 <button
                   style={{
                     background: "#7abfe2ff",
-                    borderradius: 150,
+                    borderRadius: 150,
                     gap: 50,
                   }}
                   onClick={doLogin}
@@ -94,7 +103,7 @@ const LoginPage = () => {
                 <button
                   style={{
                     background: "#7abfe2ff",
-                    borderradius: 150,
+                    borderRadius: 150,
                     gap: 50,
                   }}
                   onClick={goToHome}
@@ -106,12 +115,13 @@ const LoginPage = () => {
                   </span>
                 </button>
               </div>
+              </div>
               <hr />
               <div>
                 <button
                   style={{
                     background: "#7abfe2ff",
-                    borderradius: 150,
+                    borderRadius: 150,
                     gap: 50,
                   }}
                   onClick={() => setIsLogin(false)}
@@ -127,11 +137,11 @@ const LoginPage = () => {
           </div>
         ) : (
           <div>
-            <h1>Be Live</h1>
-            <h2>Register</h2>
+            <h1>Esencia Activa</h1>
+            <h2>Registrate</h2>
             <div>
               <div>
-                <span>Nombre</span>
+                <span>Nombre: </span>
                 <input
                   type="text"
                   onChange={(e) =>
@@ -140,7 +150,7 @@ const LoginPage = () => {
                 />
               </div>
               <div>
-                <span>Username</span>
+                <span>Username: </span>
                 <input
                   type="text"
                   onChange={(e) =>
@@ -149,19 +159,36 @@ const LoginPage = () => {
                 />
               </div>
               <div>
-                <span>Password</span>
+                <span>Password: </span>
                 <input
                   type="text"
                   onChange={(e) =>
                     handlerRegisterInfo("password", e.target.value)
                   }
                 />
+                <hr />
+              </div>
+              <div style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 20,
+            }}>
+              <div>
+                <button style={{
+                background: "#7abfe2ff",
+                borderRadius: 150,
+                gap: 50,
+              }}onClick={doRegister}><span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>Registrarme</span></button>
               </div>
               <div>
-                <button onClick={doRegister}>Registrarme</button>
+                <button style={{
+                background: "#7abfe2ff",
+                borderRadius: 150,
+                gap: 50,
+              }}onClick={goToHome}><span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>Volver</span></button>
               </div>
-              <div>
-                <button onClick={goToHome}>Volver</button>
+
               </div>
             </div>
           </div>

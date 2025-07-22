@@ -49,11 +49,13 @@ const ListProductsComponent = () => {
     const res = await addProductToCart(user.id, productId);
 
     dispatch(
-      loadInfoActions({
+      loadProductsActions({
         user: res.user,
       })
     );
   };
+
+
 
   return (
     <div>
@@ -120,7 +122,7 @@ const ListProductsComponent = () => {
                       borderRadius: 150,
                       gap: 50,
                     }}
-                    onClick={addToCart}
+                    onClick={() => addToCart(productId)}
                   >
                     <span
                       style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
