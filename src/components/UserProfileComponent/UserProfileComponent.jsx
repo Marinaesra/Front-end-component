@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyUser } from "../../core/services/userFetch";
 import { useNavigate } from "react-router";
+//import { loadProduct } from "../DetailsProductComponent/DetailsProductComponent"
 
 const UserProfileComponent = () => {
   const user = useSelector((state) => state.loginPageReducer.user);
@@ -20,7 +21,7 @@ const UserProfileComponent = () => {
   };
 
   const save = () => {
-    dispatch(modifyUser(userEdit));
+    modifyUser(userEdit);
     setIsEdit(false);
   };
 
@@ -28,10 +29,36 @@ const UserProfileComponent = () => {
     navigate("/list");
   };
 
+  /*useEffect(() => {
+      loadProduct();
+    }, []);*/
+
   return (
     <div>
-      <h2>Mi perfil</h2>
-      {isEdit ? "EDITA TU PERFIL" : "TUS DATOS"}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "1rem",
+        }}
+      >
+        <img
+          src="/EsenciaActivaLogo.png"
+          alt="Esencia Activa Logo"
+          style={{
+            top: "1rem",
+            left: "1rem",
+            width: "90px",
+            height: "auto",
+            objectFit: "contain",
+          }}
+        />
+        <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+          MI RINCONCITO
+        </h2>
+      </div>
+      {isEdit ? "EDITA TU PERFIL" : "MI INFORMACIÓN"}
       <hr />
 
       <div>
@@ -64,10 +91,10 @@ const UserProfileComponent = () => {
           <input
             type="text"
             placeholder={user.email}
-            onChange={(e) => userHandler("gmail", e.target.value)}
+            onChange={(e) => userHandler("email", e.target.value)}
           />
         ) : (
-          <span> {user.gmail} </span>
+          <span> {user.email} </span>
         )}
       </div>
       <div>
@@ -94,22 +121,26 @@ const UserProfileComponent = () => {
           <span> {user.name} </span>
         )}
       </div>
+      <hr />
       <div>
         <img src={user.photo} alt="Profile photo" />
       </div>
       {!isEdit && (
-        <div style={{
-        display: "flex",
+        <div
+          style={{
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
             marginBottom: "1rem",
-      }}>
+          }}
+        >
           <div>
             <button
               style={{
                 background: "#7abfe2ff",
                 borderRadius: 150,
                 gap: 50,
+                borderColor: "#084040ff",
               }}
               onClick={() => setIsEdit(true)}
             >
@@ -123,6 +154,7 @@ const UserProfileComponent = () => {
               style={{
                 background: "#7abfe2ff",
                 borderRadius: 150,
+                borderColor: "#084040ff",
               }}
               onClick={goToList}
             >
@@ -134,18 +166,21 @@ const UserProfileComponent = () => {
         </div>
       )}
       {isEdit && (
-        <div style={{
-        display: "flex",
+        <div
+          style={{
+            display: "flex",
             alignItems: "center",
             justifyContent: "center",
             marginBottom: "1rem",
-      }}>
+          }}
+        >
           <div>
             <button
               style={{
                 background: "#7abfe2ff",
                 borderRadius: 150,
                 gap: 50,
+                borderColor: "#084040ff",
               }}
               onClick={save}
             >
@@ -159,6 +194,7 @@ const UserProfileComponent = () => {
               style={{
                 background: "#7abfe2ff",
                 borderRadius: 150,
+                borderColor: "#084040ff",
               }}
               onClick={() => setIsEdit(false)}
             >

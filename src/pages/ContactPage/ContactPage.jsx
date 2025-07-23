@@ -11,26 +11,53 @@ const ContactPage = () => {
   return (
     <div>
       <div>
-        <h1> Donde Encontrarnos </h1>
-        <hr />
-        <div style={{ display: "flex", flexDirection: "column", gap: 25 }}>
-          <span>Avenida Mediterráneo, Edificio Aranzur nº8</span>
-          <span>Esencia Activa</span>
-          <span>Málaga</span>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "1rem",
+          }}
+        >
+          <img
+            src="/EsenciaActivaLogo.png"
+            alt="Esencia Activa Logo"
+            style={{
+              top: "1rem",
+              left: "1rem",
+              width: "90px",
+              height: "auto",
+              objectFit: "contain",
+            }}
+          />
+          <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+            {" "}
+            DONDE ENCONTRARNOS{" "}
+          </h2>
         </div>
         <hr />
-        <h2>Creadores de este Sueño</h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 25 }}>
+          <span>~ Avenida Mediterráneo, Edificio Aranzur nº8</span>
+          <span>~ Esencia Activa</span>
+          <span>~ Málaga</span>
+        </div>
+        <hr />
+        <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+          ~ Creadora De Este Sueño ~
+        </h2>
         <hr />
         <div style={{ display: "flex", flexDirection: "column", gap: 25 }}>
-          <span>Marina Escaño Rando</span>
-          <span>Málaga</span>
+          <span>~ Marina Escaño Rando</span>
+          <span>~ Málaga</span>
         </div>
+        <hr />
         <div>
           <button
             style={{
               background: "#7abfe2ff",
-              borderradius: 150,
+              borderRadius: 150,
               gap: 50,
+              borderColor: "#084040ff",
             }}
             onClick={goToReturn}
           >

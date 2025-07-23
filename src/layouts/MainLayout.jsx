@@ -10,9 +10,10 @@ const MainLayout = () => {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundImage: "url('/fondo.jpg')",
+        backgroundImage:
+          "linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), url('/fondo.jpg')",
         backgroundSize: "cover",
-        //opacity: 0.4,
+        backgroundRepeat: "repeat-y",
         zIndex: 0,
       }}
     >
@@ -22,9 +23,8 @@ const MainLayout = () => {
           zIndex: 1,
           padding: "2rem",
         }}
-      >
-        <Outlet />
-      </div>
+      ></div>
+      <Outlet />
     </div>
   );
 };

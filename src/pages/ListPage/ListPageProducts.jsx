@@ -1,15 +1,15 @@
-import React from 'react'
-import ListProductsComponent from '../../components/ListProductsComponent/ListProductsComponent'
-import Menucomponent from '../../components/MenuComponent/Menucomponent'
+import React from "react";
+import ListProductsComponent from "../../components/ListProductsComponent/ListProductsComponent";
+import Menucomponent from "../../components/MenuComponent/Menucomponent";
 
 const ListPageProducts = () => {
   return (
     <div>
-      <Menucomponent/>
+      <Menucomponent />
       <hr />
-        <ListProductsComponent/>
+      <ListProductsComponent />
     </div>
-  )
-}
+  );
+};
 
-export default ListPageProducts
+export default ListPageProducts;

@@ -29,34 +29,30 @@ export const createUser = async (newUser) => {
 };
 
 export const addProductToCart = async (userId, productId) => {
-    const res = await fetch('http://localhost:3000/user/addProduct', {
-        method: 'PUT',
-        headers: {
-            'content-type': 'Application/json'
-        },
-        body: JSON.stringify(
-            {
-                userId,
-                productId
-            }
-        )
-    })
-    const result = await res.json()
-    return result
-}
+  const res = await fetch("http://localhost:3000/addProduct", {
+    method: "PUT",
+    headers: {
+      "content-type": "Application/json",
+    },
+    body: JSON.stringify({
+      userId,
+      productId,
+    }),
+  });
+  const result = await res.json();
+  return result;
+};
 
 export const modifyUser = async (user) => {
-    const res = await fetch(`http://localhost:3000/user/modify/${user.id}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(
-            {
-                user
-            }
-        )
-    })
-    const result = await res.json()
-    return result
-}
+  const res = await fetch(`http://localhost:3000/modify/${user.id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user,
+    }),
+  });
+  const result = await res.json();
+  return result;
+};

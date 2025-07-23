@@ -32,7 +32,30 @@ const DetailsProductComponent = () => {
 
   return (
     <div>
-      <h2>Detalles de los productos</h2>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "1rem",
+        }}
+      >
+        <img
+          src="/EsenciaActivaLogo.png"
+          alt="Esencia Activa Logo"
+          style={{
+            top: "1rem",
+            left: "1rem",
+            width: "120px",
+            height: "auto",
+            objectFit: "contain",
+          }}
+        />
+        <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+          UN POQUITO SOBRE MI...
+        </h2>
+      </div>
+      <hr />
       {!productDetails ? (
         <div>Loading...</div>
       ) : (

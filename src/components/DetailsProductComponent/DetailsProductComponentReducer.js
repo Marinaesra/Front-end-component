@@ -1,4 +1,7 @@
-import { LOAD_PRODUCT, SAVE_PRODUCT_DETAILS } from "./DetailsProductComponentActions";
+import {
+  LOAD_PRODUCT,
+  SAVE_PRODUCT_DETAILS,
+} from "./DetailsProductComponentActions";
 
 const initialState = {
   productId: undefined,

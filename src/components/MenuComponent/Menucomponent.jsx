@@ -4,11 +4,19 @@ import { Link } from "react-router";
 const Menucomponent = () => {
   return (
     <div>
-      <div style={{display:"flex",justifyContent:"center", alignItems:"center", gap:40}}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 40,
+        }}
+      >
         <button
           style={{
             background: "#7abfe2ff",
             borderRadius: 150,
+            borderColor: "#084040ff",
             gap: 50,
           }}
         >
@@ -23,6 +31,7 @@ const Menucomponent = () => {
           style={{
             background: "#7abfe2ff",
             borderRadius: 150,
+            borderColor: "#084040ff",
           }}
         >
           <Link to={"/contact"}>

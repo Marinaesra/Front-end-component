@@ -24,10 +24,6 @@ const ListProductsComponent = () => {
     );
   };
 
-  useEffect(() => {
-    loadProducts();
-  }, []);
-
   const gotoDetail = async (productId) => {
     dispatch(
       detailsProductAction({
@@ -55,17 +51,42 @@ const ListProductsComponent = () => {
     );
   };
 
-
+  useEffect(() => {
+    loadProducts();
+  }, []);
 
   return (
     <div>
-      <h2>Lista de productos</h2>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginBottom: "1rem",
+        }}
+      >
+        <img
+          src="/EsenciaActivaLogo.png"
+          alt="Esencia Activa Logo"
+          style={{
+            top: "1rem",
+            left: "1rem",
+            width: "140px",
+            height: "auto",
+            objectFit: "contain",
+          }}
+        />
+        <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+          PRODUCTOS
+        </h2>
+      </div>
       <div>
         <button
           style={{
             background: "#7abfe2ff",
             borderRadius: 150,
             gap: 50,
+            borderColor: "#084040ff",
           }}
           onClick={gotoProfile}
         >
@@ -103,6 +124,7 @@ const ListProductsComponent = () => {
                   background: "#7abfe2ff",
                   borderRadius: 150,
                   gap: 50,
+                  borderColor: "#084040ff",
                 }}
                 onClick={() => {
                   gotoDetail(p.id);
@@ -115,22 +137,23 @@ const ListProductsComponent = () => {
                 </span>
               </button>
             </div>
-                <div>
-                  <button
-                    style={{
-                      background: "#7abfe2ff",
-                      borderRadius: 150,
-                      gap: 50,
-                    }}
-                    onClick={() => addToCart(productId)}
-                  >
-                    <span
-                      style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
-                    >
-                      Añadir al carrito
-                    </span>
-                  </button>
-                </div>
+            <div>
+              <button
+                style={{
+                  background: "#7abfe2ff",
+                  borderRadius: 150,
+                  gap: 50,
+                  borderColor: "#084040ff",
+                }}
+                onClick={() => addToCart(p.id)}
+              >
+                <span
+                  style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                >
+                  Añadir al carrito
+                </span>
+              </button>
+            </div>
           </div>
         ))
       )}
@@ -138,8 +161,9 @@ const ListProductsComponent = () => {
         <button
           style={{
             background: "#7abfe2ff",
-            borderradius: 150,
+            borderRadius: 150,
             gap: 50,
+            borderColor: "#084040ff",
           }}
           onClick={goToHome}
         >

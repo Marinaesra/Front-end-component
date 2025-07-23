@@ -1,7 +1,7 @@
 import { LOAD_PRODUCTS } from "./ListProductsAction";
 
 const initialState = {
-  products: []
+  products: [],
 };
 
 const listProductsReducer = (state = initialState, action) => {

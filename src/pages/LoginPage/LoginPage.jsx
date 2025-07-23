@@ -58,7 +58,31 @@ const LoginPage = () => {
       {!user ? (
         isLogin ? (
           <div>
-            <h2>Bienvenido</h2>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              <img
+                src="/EsenciaActivaLogo.png"
+                alt="Esencia Activa Logo"
+                style={{
+                  top: "1rem",
+                  left: "1rem",
+                  width: "90px",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+              />
+
+              <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+                Bienvenido
+              </h2>
+            </div>
+            <hr />
             <div>
               <div>
                 <span>Username</span>
@@ -75,46 +99,54 @@ const LoginPage = () => {
                 />
               </div>
               <hr />
-              <div style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 20,
-            
-            }}>
-
-              <div>
-                <button
-                  style={{
-                    background: "#7abfe2ff",
-                    borderRadius: 150,
-                    gap: 50,
-                  }}
-                  onClick={doLogin}
-                >
-                  <span
-                    style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 20,
+                }}
+              >
+                <div>
+                  <button
+                    style={{
+                      background: "#7abfe2ff",
+                      borderRadius: 150,
+                      gap: 50,
+                      borderColor: "#084040ff",
+                    }}
+                    onClick={doLogin}
                   >
-                    Iniciar Sesión
-                  </span>
-                </button>
-              </div>
-              <div>
-                <button
-                  style={{
-                    background: "#7abfe2ff",
-                    borderRadius: 150,
-                    gap: 50,
-                  }}
-                  onClick={goToHome}
-                >
-                  <span
-                    style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                    <span
+                      style={{
+                        font: '"Cabin", sans-serif',
+                        color: "#000000ff",
+                      }}
+                    >
+                      Iniciar Sesión
+                    </span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    style={{
+                      background: "#7abfe2ff",
+                      borderRadius: 150,
+                      gap: 50,
+                      borderColor: "#084040ff",
+                    }}
+                    onClick={goToHome}
                   >
-                    Volver
-                  </span>
-                </button>
-              </div>
+                    <span
+                      style={{
+                        font: '"Cabin", sans-serif',
+                        color: "#000000ff",
+                      }}
+                    >
+                      Volver
+                    </span>
+                  </button>
+                </div>
               </div>
               <hr />
               <div>
@@ -123,6 +155,7 @@ const LoginPage = () => {
                     background: "#7abfe2ff",
                     borderRadius: 150,
                     gap: 50,
+                    borderColor: "#084040ff",
                   }}
                   onClick={() => setIsLogin(false)}
                 >
@@ -137,8 +170,31 @@ const LoginPage = () => {
           </div>
         ) : (
           <div>
-            <h1>Esencia Activa</h1>
-            <h2>Registrate</h2>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              <img
+                src="/EsenciaActivaLogo.png"
+                alt="Esencia Activa Logo"
+                style={{
+                  top: "1rem",
+                  left: "1rem",
+                  width: "90px",
+                  height: "auto",
+                  objectFit: "contain",
+                }}
+              />
+
+              <h2 style={{ font: '"Cabin", sans-serif', color: "#084040c4" }}>
+                {" "}
+                Registrate
+              </h2>
+            </div>
             <div>
               <div>
                 <span>Nombre: </span>
@@ -168,27 +224,54 @@ const LoginPage = () => {
                 />
                 <hr />
               </div>
-              <div style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: 20,
-            }}>
-              <div>
-                <button style={{
-                background: "#7abfe2ff",
-                borderRadius: 150,
-                gap: 50,
-              }}onClick={doRegister}><span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>Registrarme</span></button>
-              </div>
-              <div>
-                <button style={{
-                background: "#7abfe2ff",
-                borderRadius: 150,
-                gap: 50,
-              }}onClick={goToHome}><span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>Volver</span></button>
-              </div>
-
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 20,
+                }}
+              >
+                <div>
+                  <button
+                    style={{
+                      background: "#7abfe2ff",
+                      borderRadius: 150,
+                      gap: 50,
+                      borderColor: "#084040ff",
+                    }}
+                    onClick={doRegister}
+                  >
+                    <span
+                      style={{
+                        font: '"Cabin", sans-serif',
+                        color: "#000000ff",
+                      }}
+                    >
+                      Registrarme
+                    </span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    style={{
+                      background: "#7abfe2ff",
+                      borderRadius: 150,
+                      gap: 50,
+                      borderColor: "#084040ff",
+                    }}
+                    onClick={goToHome}
+                  >
+                    <span
+                      style={{
+                        font: '"Cabin", sans-serif',
+                        color: "#000000ff",
+                      }}
+                    >
+                      Volver
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
