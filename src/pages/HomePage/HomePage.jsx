@@ -39,7 +39,7 @@ const HomePage = () => {
         nosotros a sido crearlo.{" "}
       </p>
       <p style={{ font: '"Cabin", sans-serif', color: "#084040ff" }}>
-        BIENVENIDOS A VUESTRA
+        ~ BIENVENIDOS A VUESTRA CASA ~
       </p>
       <button
         style={{

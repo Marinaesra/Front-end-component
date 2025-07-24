@@ -13,6 +13,7 @@ const ListProductsComponent = () => {
   const productList = useSelector(
     (state) => state.listProductsReducer.products
   );
+
   const user = useSelector((state) => state.loginPageReducer.user);
 
   const loadProducts = async () => {
@@ -43,6 +44,14 @@ const ListProductsComponent = () => {
 
   const addToCart = async (productId) => {
     const res = await addProductToCart(user.id, productId);
+
+    const userCart = await res.user.cart;
+    console.log(productId)
+    console.log(userCart)
+
+    const productsIntoCart = productList.filter(product => userCart.includes(product.productId))
+
+   console.log(productsIntoCart)
 
     dispatch(
       loadProductsActions({
@@ -96,6 +105,7 @@ const ListProductsComponent = () => {
         </button>
       </div>
       <hr />
+      
       {!productList ? (
         <div>Loading...</div>
       ) : (
@@ -107,6 +117,7 @@ const ListProductsComponent = () => {
               alignItems: "center",
               gap: 20,
               justifyContent: "space-between",
+              
             }}
           >
             <div>

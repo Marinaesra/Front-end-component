@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyUser } from "../../core/services/userFetch";
 import { useNavigate } from "react-router";
-//import { loadProduct } from "../DetailsProductComponent/DetailsProductComponent"
+import { loadInfoActions } from "../../pages/LoginPage/LoginPageAction";
 
 const UserProfileComponent = () => {
   const user = useSelector((state) => state.loginPageReducer.user);
@@ -20,8 +20,14 @@ const UserProfileComponent = () => {
     });
   };
 
-  const save = () => {
-    modifyUser(userEdit);
+  const save = async () => {
+    const userEdited = await modifyUser(userEdit);
+    console.log(userEdited)
+    dispatch(
+      loadInfoActions({
+        user: userEdited,
+      })
+    );
     setIsEdit(false);
   };
 
@@ -29,9 +35,6 @@ const UserProfileComponent = () => {
     navigate("/list");
   };
 
-  /*useEffect(() => {
-      loadProduct();
-    }, []);*/
 
   return (
     <div>
@@ -67,7 +70,7 @@ const UserProfileComponent = () => {
           <input
             type="text"
             placeholder={user.name}
-            onChange={(e) => userHandler("nombre", e.target.value)}
+            onChange={(e) => userHandler("name", e.target.value)}
           />
         ) : (
           <span> {user.name} </span>
@@ -79,7 +82,7 @@ const UserProfileComponent = () => {
           <input
             type="text"
             placeholder={user.username}
-            onChange={(e) => userHandler("usuario", e.target.value)}
+            onChange={(e) => userHandler("username", e.target.value)}
           />
         ) : (
           <span> {user.username} </span>
@@ -109,21 +112,9 @@ const UserProfileComponent = () => {
           </div>
         )}
       </div>
-      <div>
-        <span>Nombre: </span>
-        {isEdit ? (
-          <input
-            type="text"
-            placeholder={user.name}
-            onChange={(e) => userHandler("nombre", e.target.value)}
-          />
-        ) : (
-          <span> {user.name} </span>
-        )}
-      </div>
       <hr />
       <div>
-        <img src={user.photo} alt="Profile photo" />
+        <img src={user.photo} alt="photo" />
       </div>
       {!isEdit && (
         <div
