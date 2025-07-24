@@ -10,12 +10,9 @@ const MainLayout = () => {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundImage:
-          "linear-gradient(rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.16)), url('/fondo.jpg')",
-        backgroundSize: "cover",
-        backgroundRepeat: "repeat-y",
-        backgroundAttachment: "fixed",
-        zIndex: 0,
+        minHeight: "100vh",
+       
+    
       }}
     >
       <div

@@ -5,6 +5,7 @@ import { getProducts } from "../../core/services/productsFetch";
 import { useNavigate } from "react-router";
 import { detailsProductAction } from "../DetailsProductComponent/DetailsProductComponentActions";
 import { addProductToCart } from "../../core/services/userFetch";
+import { loadInfoActions } from "../../pages/LoginPage/LoginPageAction";
 
 const ListProductsComponent = () => {
   const dispatch = useDispatch();
@@ -45,20 +46,16 @@ const ListProductsComponent = () => {
   const addToCart = async (productId) => {
     const res = await addProductToCart(user.id, productId);
 
-    const userCart = await res.user.cart;
-    console.log(productId)
-    console.log(userCart)
-
-    const productsIntoCart = productList.filter(product => userCart.includes(product.productId))
-
-   console.log(productsIntoCart)
-
     dispatch(
-      loadProductsActions({
+      loadInfoActions({
         user: res.user,
       })
     );
   };
+
+  const gotoCart = async () => {
+    navigate("/cart")
+  }
 
   useEffect(() => {
     loadProducts();
@@ -101,6 +98,21 @@ const ListProductsComponent = () => {
         >
           <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
             Mi Perfil
+          </span>
+        </button>
+      </div>
+          <div>
+        <button
+          style={{
+            background: "#7abfe2ff",
+            borderRadius: 150,
+            gap: 50,
+            borderColor: "#084040ff",
+          }}
+          onClick={gotoCart}
+        >
+          <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+            Carrito
           </span>
         </button>
       </div>

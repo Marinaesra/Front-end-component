@@ -54,5 +54,6 @@ export const modifyUser = async (user) => {
     }),
   });
   const result = await res.json();
-  return result;
+  const userModified = result.user
+  return userModified; 
 };

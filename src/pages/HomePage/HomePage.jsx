@@ -33,7 +33,7 @@ const HomePage = () => {
         </h1>
       </div>
       <hr />
-      <p style={{ font: '"Cabin", sans-serif', color: "#0c0d0dff" }}>
+      <p style={{ font: '"Cabin", sans-serif', color: "white" }}>
         Aqui os presentamos nuestro pequeño gran sueño, es un proyecto creado
         desde el corazón y para vosotros,esperamos que os guste tanto como para
         nosotros a sido crearlo.{" "}
