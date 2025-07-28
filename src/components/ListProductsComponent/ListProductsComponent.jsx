@@ -51,6 +51,7 @@ const ListProductsComponent = () => {
         user: res.user,
       })
     );
+    navigate("/cart")
   };
 
   const gotoCart = async () => {
@@ -86,6 +87,12 @@ const ListProductsComponent = () => {
           PRODUCTOS
         </h2>
       </div>
+      <div   style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 40,
+        }}>
       <div>
         <button
           style={{
@@ -112,9 +119,11 @@ const ListProductsComponent = () => {
           onClick={gotoCart}
         >
           <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
-            Carrito
+            Mi Carrito
           </span>
         </button>
+      </div>
+
       </div>
       <hr />
       

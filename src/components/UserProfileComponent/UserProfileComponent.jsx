@@ -114,7 +114,24 @@ const UserProfileComponent = () => {
       </div>
       <hr />
       <div>
-        <img src={user.photo} alt="photo" />
+         {!isEdit && (
+    <img src={user.photo} alt="photo" />
+      )}
+       {isEdit && (
+  <div>
+               <span>Foto: </span>
+        {isEdit ? (
+               <input 
+               type= 'img' src={user.photo} alt="photo"
+                placeholder={user.photo}
+               onChange={(e) => userHandler("photo", e.target.value)}
+/> 
+) : (
+          <span> {user.photo} </span>
+        )}
+     </div> 
+        
+       )}
       </div>
       {!isEdit && (
         <div
