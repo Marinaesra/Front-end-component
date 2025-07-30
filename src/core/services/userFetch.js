@@ -57,3 +57,12 @@ export const modifyUser = async (user) => {
   const userModified = result.user
   return userModified; 
 };
+
+export const userDelete = async (userId) => {
+  const res = await fetch(`http://localhost:3000/delete/${userId}`, {
+    method: "DELETE",
+  });
+
+  const result = await res.json();
+  return result.user;
+};

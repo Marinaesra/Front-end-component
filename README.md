@@ -30,6 +30,8 @@ Primero tenemos que hacer un npm install ya que lo entregamos sin node_modules, 
 
 - Adjuntamos un Esquema del proyecto como imagen png, tanto en la carpeta del back como en la del front
 
+- En el crud a la hora de modificar el usuario tanto el creado como el de la base da datos, se cambia de uno en uno los campos.
+
 -EndPoints User:
 GET/:id - Para traer todos los usuarios de la base de datos al front
 POST/ - Para hacer el logeo del usuario

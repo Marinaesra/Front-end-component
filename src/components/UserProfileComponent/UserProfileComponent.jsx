@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { modifyUser } from "../../core/services/userFetch";
+import { modifyUser, userDelete } from "../../core/services/userFetch";
 import { useNavigate } from "react-router";
 import { loadInfoActions } from "../../pages/LoginPage/LoginPageAction";
 
@@ -35,6 +35,10 @@ const UserProfileComponent = () => {
     navigate("/list");
   };
 
+const userDeleteEvent = async (userId) => {
+  const aux = await userDelete(userId)
+  return aux
+}
 
   return (
     <div>
@@ -157,6 +161,22 @@ const UserProfileComponent = () => {
               </span>
             </button>
           </div>
+ <div>
+            <button
+              style={{
+                background: "#7abfe2ff",
+                borderRadius: 150,
+                gap: 50,
+                borderColor: "#084040ff",
+              }}
+              onClick={userDeleteEvent}
+            >
+              <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+                Eliminar
+              </span>
+            </button>
+          </div>
+
           <div>
             <button
               style={{
