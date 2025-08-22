@@ -5,7 +5,7 @@ export const doLoginBack = async (loginInfo) => {
       "content-type": "Application/json",
     },
     body: JSON.stringify({
-      username: loginInfo.username,
+      email: loginInfo.email,
       password: loginInfo.password,
     }),
   });

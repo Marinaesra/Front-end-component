@@ -85,7 +85,7 @@ const LoginPage = () => {
             <hr />
             <div>
               <div>
-                <span>Username</span>
+                <span>Email</span>
                 <input
                   type="text"
                   onChange={(e) => handlerLoginInfo("username", e.target.value)}
