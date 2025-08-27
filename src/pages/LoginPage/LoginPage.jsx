@@ -201,16 +201,16 @@ const LoginPage = () => {
                 <input
                   type="text"
                   onChange={(e) =>
-                    handlerRegisterInfo("nombre", e.target.value)
+                    handlerRegisterInfo("name", e.target.value)
                   }
                 />
               </div>
               <div>
-                <span>Username: </span>
+                <span>Email: </span>
                 <input
                   type="text"
                   onChange={(e) =>
-                    handlerRegisterInfo("username", e.target.value)
+                    handlerRegisterInfo("email", e.target.value)
                   }
                 />
               </div>

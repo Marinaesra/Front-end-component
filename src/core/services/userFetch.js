@@ -15,14 +15,15 @@ export const doLoginBack = async (loginInfo) => {
 };
 
 export const createUser = async (newUser) => {
+  console.log(newUser)
   const res = await fetch("http://localhost:3000/register", {
     method: "POST",
     headers: {
       "content-type": "Application/json",
     },
-    body: JSON.stringify({
-      newUser,
-    }),
+    body: JSON.stringify(
+      newUser
+    ),
   });
   const result = await res.json();
   return result.user;
