@@ -36,7 +36,7 @@ const UserProfileComponent = () => {
   };
 
 const userDeleteEvent = async () => {
-  const aux = await userDelete(user.id)
+  const aux = await userDelete(user._id)
   navigate("/");
   return aux
 }

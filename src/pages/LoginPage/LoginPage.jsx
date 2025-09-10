@@ -88,7 +88,7 @@ const LoginPage = () => {
                 <span>Email</span>
                 <input
                   type="text"
-                  onChange={(e) => handlerLoginInfo("username", e.target.value)}
+                  onChange={(e) => handlerLoginInfo("email", e.target.value)}
                 />
               </div>
               <div>

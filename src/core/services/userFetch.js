@@ -10,12 +10,10 @@ export const doLoginBack = async (loginInfo) => {
     }),
   });
   const res = await response.json();
-
   return res;
 };
 
 export const createUser = async (newUser) => {
-  console.log(newUser)
   const res = await fetch("http://localhost:3000/register", {
     method: "POST",
     headers: {
@@ -45,14 +43,14 @@ export const addProductToCart = async (userId, productId) => {
 };
 
 export const modifyUser = async (user) => {
-  const res = await fetch(`http://localhost:3000/modify/${user.id}`, {
-    method: "POST",
+  const res = await fetch(`http://localhost:3000/modify/${user._id}`, {
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      user,
-    }),
+    body: JSON.stringify(
+      user
+    ),
   });
   const result = await res.json();
   const userModified = result.user
@@ -65,5 +63,5 @@ export const userDelete = async (userId) => {
   });
 
   const result = await res.json();
-  return result.user;
+  return result;
 };
