@@ -47,7 +47,7 @@ const CartComponent = () => {
       <hr />
       {!user.cart ? (
         <div style={{ font: '"Cabin", sans-serif', color: "white" }}>
-          No hay productos en el carrito
+          ... P R O X I M A M E N T E ...
         </div>
       ) : (
         user.cart.map((product, idx) => {

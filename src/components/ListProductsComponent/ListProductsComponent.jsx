@@ -111,14 +111,14 @@ const ListProductsComponent = () => {
           <div>
         <button
           style={{
-            background: "#7abfe2ff",
+            background: "#686c6eff",
             borderRadius: 150,
             gap: 50,
-            borderColor: "#084040ff",
+            borderColor: "#0f1010ff",
           }}
           onClick={gotoCart}
         >
-          <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+          <span style={{ font: '"Cabin", sans-serif', color: "#e3ddddff" }}>
             Mi Carrito
           </span>
         </button>
@@ -172,15 +172,15 @@ const ListProductsComponent = () => {
             <div>
               <button
                 style={{
-                  background: "#7abfe2ff",
+                  background: "#686c6eff",
                   borderRadius: 150,
                   gap: 50,
-                  borderColor: "#084040ff",
+                  borderColor: "#0f1010ff",
                 }}
                 onClick={() => addToCart(p.id)}
               >
                 <span
-                  style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}
+                  style={{ font: '"Cabin", sans-serif', color: "#e3ddddff" }}
                 >
                   Añadir al carrito
                 </span>

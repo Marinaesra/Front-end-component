@@ -5,7 +5,7 @@ const ContactPage = () => {
   const navigate = useNavigate();
 
   const goToReturn = () => {
-    navigate("/");
+    navigate("/list");
   };
 
   return (
