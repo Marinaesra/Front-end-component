@@ -3,6 +3,10 @@ import Menucomponent from "../../components/MenuComponent/Menucomponent";
 import { Link } from "react-router";
 
 const HomePage = () => {
+  //AQUI TENGO QUE LEER DEL LOCALSTORAGE RESCATANDO EL TOKEN 
+  //useEffect(() => {
+  //funcion que yo creo en el back logeando con el token();
+  //}, []);
   return (
     <div>
       <hr />

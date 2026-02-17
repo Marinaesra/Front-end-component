@@ -1,5 +1,8 @@
 import "./App.css";
-import store from "./core/redux/store/store";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./core/redux/store/store";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -10,10 +13,12 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 import CartPage from "./pages/CartPage/CartPage";
 import MainLayout from "./layouts/MainLayout";
+//PersistGate es como el Provider pero permite que redux se alamcene en el navegador del usuario y deben ir juntos y en ese orden
 
 function App() {
   return (
     <Provider store={store}>
+ <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
@@ -27,6 +32,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+ </PersistGate>
     </Provider>
   );
 }
