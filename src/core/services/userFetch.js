@@ -42,11 +42,12 @@ export const addProductToCart = async (userId, productId) => {
   return result;
 };
 
-export const modifyUser = async (user) => {
+export const modifyUser = async (user, token) => {
   const res = await fetch(`http://localhost:3000/modify/${user._id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      "auth-token": token
     },
     body: JSON.stringify(
       user
@@ -57,9 +58,13 @@ export const modifyUser = async (user) => {
   return userModified; 
 };
 
-export const userDelete = async (userId) => {
+export const userDelete = async (userId, token) => {
   const res = await fetch(`http://localhost:3000/delete/${userId}`, {
     method: "DELETE",
+   headers: {
+      "Content-Type": "application/json",
+      "auth-token": token
+    }, 
   });
 
   const result = await res.json();

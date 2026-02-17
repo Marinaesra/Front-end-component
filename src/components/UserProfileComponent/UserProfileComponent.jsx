@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyUser, userDelete } from "../../core/services/userFetch";
 import { useNavigate } from "react-router";
-import { loadInfoActions } from "../../pages/LoginPage/LoginPageAction";
+import { loadInfoActions, logOutActions } from "../../pages/LoginPage/LoginPageAction";
 
 const UserProfileComponent = () => {
   const user = useSelector((state) => state.loginPageReducer.user);
+  const token = useSelector((state) => state.loginPageReducer.token);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const UserProfileComponent = () => {
   };
 
   const save = async () => {
-    const userEdited = await modifyUser(userEdit);
+    const userEdited = await modifyUser(userEdit, token);
     console.log(userEdited)
     dispatch(
       loadInfoActions({
@@ -36,9 +37,19 @@ const UserProfileComponent = () => {
   };
 
 const userDeleteEvent = async () => {
-  const aux = await userDelete(user._id)
+  const aux = await userDelete(user._id, token)
+    dispatch(
+      logOutActions()
+    );
   navigate("/");
   return aux
+}
+
+const cerrarSesion = async() => {
+    dispatch(
+      logOutActions()
+    );
+  navigate("/");
 }
 
   return (
@@ -189,6 +200,20 @@ const userDeleteEvent = async () => {
             >
               <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
                 Volver
+              </span>
+            </button>
+          </div>
+                    <div>
+            <button
+              style={{
+                background: "#7abfe2ff",
+                borderRadius: 150,
+                borderColor: "#084040ff",
+              }}
+              onClick={cerrarSesion}
+            >
+              <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+                Cerrar Sesión
               </span>
             </button>
           </div>

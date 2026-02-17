@@ -34,6 +34,7 @@ const LoginPage = () => {
     dispatch(
       doLoginActions({
         user: res.user,
+        token: res.token
       })
     );
     navigate("/list");

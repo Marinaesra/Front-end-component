@@ -1,7 +1,8 @@
-import { LOAD_INFO, LOGIN } from "./LoginPageAction";
+import { LOAD_INFO, LOGIN, LOGOUT } from "./LoginPageAction";
 
 const initialState = {
   user: undefined,
+  token: undefined,
   isOnline: false,
 };
 
@@ -13,6 +14,7 @@ const loginPageReducer = (state = initialState, action) => {
       return {
         ...state,
         user: payload.user,
+        token: payload.token,
         isOnline: true,
       };
     case LOAD_INFO:
@@ -20,6 +22,8 @@ const loginPageReducer = (state = initialState, action) => {
         ...state,
         user: payload.user,
       };
+    case LOGOUT: 
+      return initialState
     default:
       return state;
   }
