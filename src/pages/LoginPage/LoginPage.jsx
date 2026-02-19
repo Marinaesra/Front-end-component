@@ -34,8 +34,8 @@ const LoginPage = () => {
     dispatch(
       doLoginActions({
         user: res.user,
-        token: res.token
-      })
+        token: res.token,
+      }),
     );
     navigate("/list");
   };
@@ -45,7 +45,7 @@ const LoginPage = () => {
     dispatch(
       doLoginActions({
         user: res,
-      })
+      }),
     );
     navigate("/list");
   };
@@ -201,18 +201,14 @@ const LoginPage = () => {
                 <span>Nombre: </span>
                 <input
                   type="text"
-                  onChange={(e) =>
-                    handlerRegisterInfo("name", e.target.value)
-                  }
+                  onChange={(e) => handlerRegisterInfo("name", e.target.value)}
                 />
               </div>
               <div>
                 <span>Email: </span>
                 <input
                   type="text"
-                  onChange={(e) =>
-                    handlerRegisterInfo("email", e.target.value)
-                  }
+                  onChange={(e) => handlerRegisterInfo("email", e.target.value)}
                 />
               </div>
               <div>

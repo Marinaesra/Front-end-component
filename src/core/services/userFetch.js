@@ -19,9 +19,7 @@ export const createUser = async (newUser) => {
     headers: {
       "content-type": "Application/json",
     },
-    body: JSON.stringify(
-      newUser
-    ),
+    body: JSON.stringify(newUser),
   });
   const result = await res.json();
   return result.user;
@@ -47,24 +45,22 @@ export const modifyUser = async (user, token) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      "auth-token": token
+      "auth-token": token,
     },
-    body: JSON.stringify(
-      user
-    ),
+    body: JSON.stringify(user),
   });
   const result = await res.json();
-  const userModified = result.user
-  return userModified; 
+  const userModified = result.user;
+  return userModified;
 };
 
 export const userDelete = async (userId, token) => {
   const res = await fetch(`http://localhost:3000/delete/${userId}`, {
     method: "DELETE",
-   headers: {
+    headers: {
       "Content-Type": "application/json",
-      "auth-token": token
-    }, 
+      "auth-token": token,
+    },
   });
 
   const result = await res.json();

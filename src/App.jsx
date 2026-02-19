@@ -18,21 +18,21 @@ import MainLayout from "./layouts/MainLayout";
 function App() {
   return (
     <Provider store={store}>
- <PersistGate loading={null} persistor={persistor}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/list" element={<ListPageProducts />} />
-            <Route path="/details" element={<DetailsProductsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/profile" element={<UserProfilePage />} />
-            <Route path="/cart" element={<CartPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
- </PersistGate>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/list" element={<ListPageProducts />} />
+              <Route path="/details" element={<DetailsProductsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/profile" element={<UserProfilePage />} />
+              <Route path="/cart" element={<CartPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   );
 }

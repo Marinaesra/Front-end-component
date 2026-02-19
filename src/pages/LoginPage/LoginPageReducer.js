@@ -22,8 +22,8 @@ const loginPageReducer = (state = initialState, action) => {
         ...state,
         user: payload.user,
       };
-    case LOGOUT: 
-      return initialState
+    case LOGOUT:
+      return initialState;
     default:
       return state;
   }

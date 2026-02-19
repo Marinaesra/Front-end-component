@@ -3,7 +3,7 @@ import Menucomponent from "../../components/MenuComponent/Menucomponent";
 import { Link } from "react-router";
 
 const HomePage = () => {
-   return (
+  return (
     <div>
       <hr />
       <Menucomponent />

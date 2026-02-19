@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyUser, userDelete } from "../../core/services/userFetch";
 import { useNavigate } from "react-router";
-import { loadInfoActions, logOutActions } from "../../pages/LoginPage/LoginPageAction";
+import {
+  loadInfoActions,
+  logOutActions,
+} from "../../pages/LoginPage/LoginPageAction";
 
 const UserProfileComponent = () => {
   const user = useSelector((state) => state.loginPageReducer.user);
@@ -23,11 +26,11 @@ const UserProfileComponent = () => {
 
   const save = async () => {
     const userEdited = await modifyUser(userEdit, token);
-    console.log(userEdited)
+    console.log(userEdited);
     dispatch(
       loadInfoActions({
         user: userEdited,
-      })
+      }),
     );
     setIsEdit(false);
   };
@@ -36,21 +39,17 @@ const UserProfileComponent = () => {
     navigate("/list");
   };
 
-const userDeleteEvent = async () => {
-  const aux = await userDelete(user._id, token)
-    dispatch(
-      logOutActions()
-    );
-  navigate("/");
-  return aux
-}
+  const userDeleteEvent = async () => {
+    const aux = await userDelete(user._id, token);
+    dispatch(logOutActions());
+    navigate("/");
+    return aux;
+  };
 
-const cerrarSesion = async() => {
-    dispatch(
-      logOutActions()
-    );
-  navigate("/");
-}
+  const cerrarSesion = async () => {
+    dispatch(logOutActions());
+    navigate("/");
+  };
 
   return (
     <div>
@@ -93,18 +92,6 @@ const cerrarSesion = async() => {
         )}
       </div>
       <div>
-        <span>Usuario: </span>
-        {isEdit ? (
-          <input
-            type="text"
-            placeholder={user.username}
-            onChange={(e) => userHandler("username", e.target.value)}
-          />
-        ) : (
-          <span> {user.username} </span>
-        )}
-      </div>
-      <div>
         <span>Email: </span>
         {isEdit ? (
           <input
@@ -130,24 +117,23 @@ const cerrarSesion = async() => {
       </div>
       <hr />
       <div>
-         {!isEdit && (
-    <img src={user.photo} alt="photo" />
-      )}
-       {isEdit && (
-  <div>
-               <span>Foto: </span>
-        {isEdit ? (
-               <input 
-               type= 'img' src={user.photo} alt="photo"
+        {!isEdit && <img src={user.photo} alt="photo" />}
+        {isEdit && (
+          <div>
+            <span>Foto: </span>
+            {isEdit ? (
+              <input
+                type="img"
+                src={user.photo}
+                alt="photo"
                 placeholder={user.photo}
-               onChange={(e) => userHandler("photo", e.target.value)}
-/> 
-) : (
-          <span> {user.photo} </span>
+                onChange={(e) => userHandler("photo", e.target.value)}
+              />
+            ) : (
+              <span> {user.photo} </span>
+            )}
+          </div>
         )}
-     </div> 
-        
-       )}
       </div>
       {!isEdit && (
         <div
@@ -173,7 +159,7 @@ const cerrarSesion = async() => {
               </span>
             </button>
           </div>
- <div>
+          <div>
             <button
               style={{
                 background: "#7abfe2ff",
@@ -203,7 +189,7 @@ const cerrarSesion = async() => {
               </span>
             </button>
           </div>
-                    <div>
+          <div>
             <button
               style={{
                 background: "#7abfe2ff",
