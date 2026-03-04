@@ -59,7 +59,7 @@ const ListProductsComponent = () => {
   };
 
   const gotoCart = async () => {
-    if (!user) return;
+     if (!user) return;
     navigate("/cart");
   };
 
