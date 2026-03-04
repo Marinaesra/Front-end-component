@@ -95,7 +95,7 @@ const UserProfileComponent = () => {
         <span>Email: </span>
         {isEdit ? (
           <input
-            type="text"
+            type="email"
             placeholder={user.email}
             onChange={(e) => userHandler("email", e.target.value)}
           />

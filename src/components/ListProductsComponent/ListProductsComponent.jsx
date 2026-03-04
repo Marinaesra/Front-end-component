@@ -17,8 +17,6 @@ const ListProductsComponent = () => {
 
   const user = useSelector((state) => state.loginPageReducer.user);
 
-
-
   const loadProducts = async () => {
     const aux = await getProducts();
     dispatch(
@@ -42,12 +40,12 @@ const ListProductsComponent = () => {
   };
 
   const gotoProfile = async () => {
-     if (!user) return;
+    if (!user) return;
     navigate("/profile");
   };
 
   const addToCart = async (productId) => {
-     if (!user) return;
+    if (!user) return;
     const res = await addProductToCart(user.id, productId);
 
     dispatch(
@@ -59,7 +57,7 @@ const ListProductsComponent = () => {
   };
 
   const gotoCart = async () => {
-     if (!user) return;
+    if (!user) return;
     navigate("/cart");
   };
 
