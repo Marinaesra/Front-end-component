@@ -10,22 +10,21 @@ import { loadInfoActions } from "../../pages/LoginPage/LoginPageAction";
 const ListProductsComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-   
 
   const productList = useSelector(
-    (state) => state.listProductsReducer.products
+    (state) => state.listProductsReducer.products,
   );
 
   const user = useSelector((state) => state.loginPageReducer.user);
 
-   //const [isLogin, setIsLogin] = useState(undefined)
+
 
   const loadProducts = async () => {
     const aux = await getProducts();
     dispatch(
       loadProductsActions({
         products: aux.products,
-      })
+      }),
     );
   };
 
@@ -33,7 +32,7 @@ const ListProductsComponent = () => {
     dispatch(
       detailsProductAction({
         productId: productId,
-      })
+      }),
     );
     navigate("/details");
   };
@@ -43,23 +42,26 @@ const ListProductsComponent = () => {
   };
 
   const gotoProfile = async () => {
+     if (!user) return;
     navigate("/profile");
   };
 
   const addToCart = async (productId) => {
+     if (!user) return;
     const res = await addProductToCart(user.id, productId);
 
     dispatch(
       loadInfoActions({
         user: res.user,
-      })
+      }),
     );
-    navigate("/cart")
+    navigate("/cart");
   };
 
   const gotoCart = async () => {
-    navigate("/cart")
-  }
+    if (!user) return;
+    navigate("/cart");
+  };
 
   useEffect(() => {
     loadProducts();
@@ -91,48 +93,48 @@ const ListProductsComponent = () => {
         </h2>
       </div>
 
-
-      <div   style={{
+      <div
+        style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           gap: 40,
-        }}>
-      <div>
-        <button
-          style={{
-            background: "#7abfe2ff",
-            borderRadius: 150,
-            gap: 50,
-            borderColor: "#084040ff",
-          }}
-          onClick={gotoProfile}
-        >
-          <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
-            Mi Perfil
-          </span>
-        </button>
-      </div>
+        }}
+      >
+        <div>
+          <button
+            style={{
+              background: "#7abfe2ff",
+              borderRadius: 150,
+              gap: 50,
+              borderColor: "#084040ff",
+            }}
+            onClick={gotoProfile}
+          >
+            <span style={{ font: '"Cabin", sans-serif', color: "#000000ff" }}>
+              Mi Perfil
+            </span>
+          </button>
+        </div>
 
-          <div>
-        <button
-          style={{
-            background: "#686c6eff",
-            borderRadius: 150,
-            gap: 50,
-            borderColor: "#0f1010ff",
-          }}
-          onClick={gotoCart}
-        >
-          <span style={{ font: '"Cabin", sans-serif', color: "#e3ddddff" }}>
-            Mi Carrito
-          </span>
-        </button>
-      </div>
-
+        <div>
+          <button
+            style={{
+              background: "#686c6eff",
+              borderRadius: 150,
+              gap: 50,
+              borderColor: "#0f1010ff",
+            }}
+            onClick={gotoCart}
+          >
+            <span style={{ font: '"Cabin", sans-serif', color: "#e3ddddff" }}>
+              Mi Carrito
+            </span>
+          </button>
+        </div>
       </div>
       <hr />
-      
+
       {!productList ? (
         <div>Loading...</div>
       ) : (
@@ -144,7 +146,6 @@ const ListProductsComponent = () => {
               alignItems: "center",
               gap: 20,
               justifyContent: "space-between",
-              
             }}
           >
             <div>
