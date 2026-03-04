@@ -51,6 +51,10 @@ const UserProfileComponent = () => {
     navigate("/");
   };
 
+    //if (!user) {
+
+  //}
+
   return (
     <div>
       <div

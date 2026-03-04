@@ -13,11 +13,15 @@ const CartComponent = () => {
     return res;
   };
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const goTolist = async ()=>{
-    navigate("/list")
-  }
+  const goTolist = async () => {
+    navigate("/list");
+  };
+
+  //if (!user) {
+
+  //}
 
   return (
     <div>

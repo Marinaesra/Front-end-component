@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadProductsActions } from "./ListProductsAction";
 import { getProducts } from "../../core/services/productsFetch";
@@ -10,12 +10,15 @@ import { loadInfoActions } from "../../pages/LoginPage/LoginPageAction";
 const ListProductsComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+   
 
   const productList = useSelector(
     (state) => state.listProductsReducer.products
   );
 
   const user = useSelector((state) => state.loginPageReducer.user);
+
+   //const [isLogin, setIsLogin] = useState(undefined)
 
   const loadProducts = async () => {
     const aux = await getProducts();
@@ -87,6 +90,8 @@ const ListProductsComponent = () => {
           PRODUCTOS
         </h2>
       </div>
+
+
       <div   style={{
           display: "flex",
           justifyContent: "center",
@@ -108,6 +113,7 @@ const ListProductsComponent = () => {
           </span>
         </button>
       </div>
+
           <div>
         <button
           style={{

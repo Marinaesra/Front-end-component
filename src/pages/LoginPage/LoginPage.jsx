@@ -5,10 +5,13 @@ import { doLoginActions } from "./LoginPageAction";
 import HomePage from "../HomePage/HomePage";
 import { useNavigate } from "react-router";
 
+const ERROR_MESSAGE = "Usuario o contraseña no valido";
+
 const LoginPage = () => {
   const [loginInfo, setLoginInfo] = useState({});
   const [isLogin, setIsLogin] = useState(true);
   const [registerInfo, setRegisterInfo] = useState({});
+  const [isError, setIsError] = useState(false);
 
   const user = useSelector((state) => state.loginPageReducer.user);
 
@@ -30,14 +33,25 @@ const LoginPage = () => {
   };
 
   const doLogin = async () => {
-    const res = await doLoginBack(loginInfo);
-    dispatch(
-      doLoginActions({
-        user: res.user,
-        token: res.token,
-      }),
-    );
-    navigate("/list");
+    try {
+      setIsError(false);
+
+      const res = await doLoginBack(loginInfo);
+
+      if (res.user) {
+        dispatch(
+          doLoginActions({
+            user: res.user,
+            token: res.token,
+          }),
+        );
+        navigate("/list");
+      } else {
+        setIsError(true);
+      }
+    } catch (error) {
+      setIsError(true);
+    }
   };
 
   const doRegister = async () => {
@@ -84,6 +98,12 @@ const LoginPage = () => {
               </h2>
             </div>
             <hr />
+            {isError && (
+              <div style={{ color: "red", marginBottom: "1rem" }}>
+                {ERROR_MESSAGE}
+              </div>
+            )}
+
             <div>
               <div>
                 <span>Email</span>
