@@ -6,12 +6,13 @@ import HomePage from "../HomePage/HomePage";
 import { useNavigate } from "react-router";
 
 const ERROR_MESSAGE = "Usuario o contraseña no valido";
+const EMAIL_FORMAT_ERROR = "El formato del email no es correcto";
 
 const LoginPage = () => {
   const [loginInfo, setLoginInfo] = useState({});
   const [isLogin, setIsLogin] = useState(true);
   const [registerInfo, setRegisterInfo] = useState({});
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(null);
 
   const user = useSelector((state) => state.loginPageReducer.user);
 
@@ -34,7 +35,7 @@ const LoginPage = () => {
 
   const doLogin = async () => {
     try {
-      setIsError(false);
+      setIsError(null);
 
       const res = await doLoginBack(loginInfo);
 
@@ -55,13 +56,28 @@ const LoginPage = () => {
   };
 
   const doRegister = async () => {
-    const res = await createUser(registerInfo);
-    dispatch(
-      doLoginActions({
-        user: res,
-      }),
-    );
-    navigate("/list");
+    setIsError(null);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(registerInfo.email || "")) {
+      setIsError("email");
+      return;
+    }
+
+    try {
+      const res = await createUser(registerInfo);
+
+      dispatch(
+        doLoginActions({
+          user: res,
+        }),
+      );
+
+      navigate("/list");
+    } catch (error) {
+      setIsError("true");
+    }
   };
 
   const goToHome = async () => {
@@ -99,8 +115,8 @@ const LoginPage = () => {
             </div>
             <hr />
             {isError && (
-              <div style={{ color: "red", marginBottom: "1rem" }}>
-                {ERROR_MESSAGE}
+              <div style={{ color: "red" }}>
+                {isError === "email" ? EMAIL_FORMAT_ERROR : ERROR_MESSAGE}
               </div>
             )}
 
@@ -108,7 +124,7 @@ const LoginPage = () => {
               <div>
                 <span>Email</span>
                 <input
-                  type="text"
+                  type="email"
                   onChange={(e) => handlerLoginInfo("email", e.target.value)}
                 />
               </div>
@@ -224,10 +240,15 @@ const LoginPage = () => {
                   onChange={(e) => handlerRegisterInfo("name", e.target.value)}
                 />
               </div>
+              {isError && (
+                <div style={{ color: "red" }}>
+                  {isError === "email" ? EMAIL_FORMAT_ERROR : ERROR_MESSAGE}
+                </div>
+              )}
               <div>
                 <span>Email: </span>
                 <input
-                  type="text"
+                  type="email"
                   onChange={(e) => handlerRegisterInfo("email", e.target.value)}
                 />
               </div>
