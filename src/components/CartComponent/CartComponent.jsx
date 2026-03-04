@@ -19,10 +19,6 @@ const CartComponent = () => {
     navigate("/list");
   };
 
-  //if (!user) {
-
-  //}
-
   return (
     <div>
       <div
